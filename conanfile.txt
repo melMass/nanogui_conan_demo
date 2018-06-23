@@ -3,6 +3,7 @@
 eigen/3.3.4@conan/stable
 nanovg/1.1@melmass/MTB
 nanogui/1.1@melmass/MTB
+glfw/3.2.1@bincrafters/stable
 
 [generators]
 cmake
