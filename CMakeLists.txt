@@ -1,9 +1,12 @@
 cmake_minimum_required(VERSION 3.0)
-project(mtbGUI)
+set(PROJECT_NAME "example")
+
+project(${PROJECT_NAME})
+
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)  # not necessary, but encouraged
-# Download automatically, you can also just copy the conan.cmake file
 
+# Download automatically, you can also just copy the conan.cmake file
 if(NOT EXISTS "${CMAKE_BINARY_DIR}/conan.cmake")
    message(STATUS "Downloading conan.cmake from https://github.com/conan-io/cmake-conan")
    file(DOWNLOAD "https://raw.githubusercontent.com/conan-io/cmake-conan/v0.8/conan.cmake"
@@ -25,8 +28,8 @@ IF(APPLE)
    SET(EXTRA_LIBS ${COCOA_LIBRARY} ${GLUT_LIBRARY} ${OpenGL_LIBRARY})
 ENDIF (APPLE)
 
-add_executable(mtbGUI src/main.cpp)
-target_link_libraries(mtbGUI ${CONAN_LIBS})
+add_executable(${PROJECT_NAME} src/main.cpp)
+target_link_libraries(${PROJECT_NAME} ${CONAN_LIBS})
 # target_link_libraries(main ${CONAN_LIBS})
-target_link_libraries(mtbGUI ${EXTRA_LIBS})
+target_link_libraries(${PROJECT_NAME} ${EXTRA_LIBS})
 set(CMAKE_BUILD_TYPE Release)
